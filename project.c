@@ -463,7 +463,7 @@ void SecondTask(void *pData)
     FS_voidReadData();
     while(1)
     {for(uint8_t i=0;i<Numbers;i++)
-        Trace(1,"status[%d]=%s",i,MASTER_STATUES[i]);
+        Trace(1,"staaaatus[%d]=%s",i,MASTER_STATUES[i]);
 	   	OS_Sleep(8000);
     }
 }
