@@ -14,12 +14,10 @@
 
 //**************SMS******************
 #define msg "areyouok"
-#define Number_size 13
-#define Number_Size_And_Termination 14
 
 //**************TF CARD*******************
 #define TF_CARD_TEST_FILE_NAME "/t/test_TF_card.txt"
 //**************DEBOUNCING***********
-#define SWITCH_DEBOUNCING 1500 //1M&30S "DELLAY"
+#define SWITCH_DEBOUNCING 60000 //1M "DELLAY"
 
 #endif

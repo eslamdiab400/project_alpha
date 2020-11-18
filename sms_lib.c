@@ -5,15 +5,6 @@
 #include "str_utils.c"
 #include "api_os.h"
 
-
-
-
-
-
-
-
-
-
 #include "api_hal_gpio.h"
 #include "stdint.h"
 #include "stdbool.h"
@@ -38,6 +29,14 @@
 #include "api_network.h"
 #include "api_socket.h"
 #include "api_info.h"
+
+/*
+* Function: SMSInit
+* -----------------
+* Take: Void
+* Return: Void
+* Description: initilization of SMS and set Configration parameter.
+*/
 void SMSInit()
 {
     if(!SMS_SetFormat(SMS_FORMAT_TEXT,SIM0))
@@ -58,7 +57,7 @@ void SMSInit()
     }
    
 }
-void SendUtf8Sms(char *phoneNumber, char *msg)
+/*void SendUtf8Sms(char *phoneNumber, char *msg)
 {
     uint8_t *unicode = NULL;
     uint32_t unicodeLen;
@@ -75,8 +74,16 @@ void SendUtf8Sms(char *phoneNumber, char *msg)
         Trace(1, "Sending SMS failed");
     }
     OS_Free(unicode);
-}
+}*/
 
+/*
+* Function: ClearSmsStorage
+* -------------------------
+* Take: Void
+* Return: Void
+* Description: get storage information of SIM Card to know the size of memory
+* and then call function SMS_DeleteMessage to clear memory of SIM card.
+*/
 void ClearSmsStorage()
 {
     SMS_Storage_Info_t storageInfo;
@@ -96,8 +103,16 @@ void ClearSmsStorage()
         Trace(1, "Cleaning all SIM sms done");
     }
 }
-
-void Get_PhoneNumer(char *msgHeader, char *phoneNumber)
+/*
+* Function: ClearSmsStorage
+* -------------------------
+* Take:
+* msgHeader= is string contain the phone number that sent this sms and the sms content.
+* phoneNumber= The location of phone number storage
+* Return: Void
+* Description: use to split string to store the phone number in separated buffer  
+*/
+void Get_PhoneNumber(char *msgHeader, char *phoneNumber)
 {
     //Trace(1, "msgHeader:%s", msgHeader);
     //"+84_sender_phone_number",fdsfsd,fdsfdsf,"+84_sms_center"
